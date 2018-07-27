@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:loan_flutter/banner.dart';
 import 'package:loan_flutter/loan/loan_values.dart';
+import 'package:loan_flutter/loan/platformMethod.dart';
 
 class IndexLoanPage extends StatefulWidget {
   IndexLoanPage({Key key}) : super(key: key);
@@ -173,15 +174,19 @@ suspending - 该应用程序将暂时中止。这在iOS上未使用
 
   _verifyNum() {
     print(_textEditController.text);
-    if (_textEditController.text.length < 11) {}
-    showDialog(
-        context: context,
-        builder: (BuildContext context) => new Center(
-              heightFactor: 80.0,
-              child: new CircularProgressIndicator(
-                backgroundColor: Colors.green,
-              ),
-            ));
+    if (_textEditController.text.length < 11) {
+      LocalPlatformMethod.showTip(LocalPlatformMethod.LENGTH_SHORT,
+          LoanStrings.input_right_phone_number);
+    } else {
+      showDialog(
+          context: context,
+          builder: (BuildContext context) => new Center(
+                heightFactor: 80.0,
+                child: new CircularProgressIndicator(
+                  backgroundColor: Colors.green,
+                ),
+              ));
+    }
   }
 
   Widget _phoneEdit() {

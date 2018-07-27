@@ -5,6 +5,7 @@ class LoanStrings {
   static String dailyfee = "一千元借12个月，日费用最低2毛7";
   static String phoneNum_input_hint_text = "请输入本人常用手机号";
   static String want_loan = "我要借钱";
+  static String input_right_phone_number = "请输入正确的手机号码";
 }
 
 class LoanValues {
